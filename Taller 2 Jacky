@@ -1,0 +1,179 @@
+@Override
+
+
+public boolean isEmpty(){
+    return head == null;
+}
+
+@Override
+public void addLast(T d){
+    Node<T> newNode = new Node<>(d);
+    Node<T> currentNode = head;
+    Node<T> currentNode2 = head;
+    int cont = 0;
+
+    boolean checked = false;
+
+    while ((currentNode2 != null)&&(checked == false)){
+        if((int)currentNode2.getData()==(int)d){
+            System.out.println("El dato ya existe en la lista");
+            checked = true;                 
+        }
+        currentNode2 = currentNode2.getNextNode();
+    }
+
+    if (checked == false){
+        while(currentNode.getNextNode()!= null){
+            currentNode = currentNode.getNextNode();
+        }
+        
+        currentNextNode.setNextNode(newNode);
+        cont++;
+}
+}
+
+@Override
+public void addAfter(T a,T b){
+    
+    boolean checked = false;
+    Node <T> newNode = new Node<>(a);
+    int cont = 0;
+    
+    for (Node<T> i = head; i != null; i = i.getNextNode()){
+        if (i.getData() == b){
+            newNode.setNextNode(i.getNextNode());
+            i.setNextNode(newNode);
+            cont++;
+            checked = true;
+        }
+    }
+    
+    if (checked == false){
+        System.out.println("No existe el dato");
+    }
+}
+
+
+@Override
+public void deleteLast(){
+
+    int cont = 0;
+    
+    if (isEmpty()){
+        System.out.println("La lista se encuentra vacía");
+    }
+    else{
+        if (head != null){
+            Node<T> currentNode = head;
+            
+            while (currentNode.getNextNode() != null){
+                currentNode = currentNode.getNextNode();}
+            
+            Node<T> currentNode2 = head;
+            while (currentNode2.getNextNode()!=currentNode){
+                currentNode2 = currentNode2.getNextNode(); }
+            
+            currentNode = currentNode2;
+            currentNode.setNextNode(null);
+            cont--; }
+        else{
+            head = tail = null;
+        }
+    }
+}
+
+
+public void addOrdered(){
+    
+}
+
+
+@Override
+public boolean delete(T d){
+    boolean checkDeleted = false;
+    DoubleNode<T> currentNode = head;
+    DoubleNode<T> before = null;
+    
+    while (currentNode != null){
+        if (currentNode.getData() == d){
+            if (before == null){
+                head = head.getNextNode();
+                currentNode.srtNextNode(null);
+                currentNode = head;
+            }
+            else{
+                before.setNextNode(currentNode.getNextNode());
+                currentNode.setNextNode(null);
+                currentNode = before.getNextNode();
+            }
+        }else{
+            before = currentNode;
+            currentNode = currentNode.getNextNode();
+        }
+    }
+
+    return checkDeleted;
+}
+
+@Override
+public void deleteFirts(){
+    Node<T> nodeHeadAux = head;
+    if (isEmpty()){
+        System.out.println("La lista esta vacía");
+    }
+    else{
+        if (head.getNextNode()== head.getPreviousNode()){
+            head = null;
+        }
+        else{
+            while (nodeHeadAux.getNextNode()!= head){
+                nodeHeadAux = nodeHeadAux.getNextNode();
+            }
+            
+            nodeHeadAux.setNextNode(head.getNextNode());
+            head.getNextNode().setPreviousNode(nodeHeadAux);
+            head = head.getNextNode;
+            }
+        }
+}
+
+
+//------Unir todos los datos de otra lista circular simple.----------------
+
+
+@Override
+public void search(T d){
+    boolean checkFounded = false;
+    
+    if(isEmpty()){
+        return false;
+    }
+    else{
+        DoubleNode<T> currentNode = head.getPreviousNode();
+        do{
+            if (currentNode.getData() == d){
+                checkFounded = true;
+            }
+            currentNode = currentNode.getPreviousNode();
+        }while (currentNode != head.getPreviousNode() && checkFounded != true);
+        
+        if((int)currentNode.getNextNode().getData()==(int)d){
+            checkFounded = true;
+        }
+    }
+    return checkFounded;
+}
+
+//----------------Mostrar los datos de forma descendente.
+
+
+
+
+
+
+//------------------------Dividir la lista en dos a partir de un nodo específico. Se retorna una nueva lista partiendo del nodo específico.
+        
+        
+        
+        
+}
