@@ -84,7 +84,12 @@ public void deleteLast(){
 
 
 public void addOrdered(){
-    
+    int numMin = Integer . MIN_VALUE ;
+        currentNode;
+        current = head;
+        node currentAux;
+        actualAux = head;
+        
 }
 
 
@@ -137,7 +142,13 @@ public void deleteFirts(){
         }
 }
 
-
+public  class  List {
+    Node head, last;
+    
+    public  List () {
+        head = null ;
+        last = null ;
+    }
 //------Unir todos los datos de otra lista circular simple.----------------
 
 
@@ -165,15 +176,31 @@ public void search(T d){
 }
 
 //----------------Mostrar los datos de forma descendente.
+public  void  orderedDesc () {
+        int numMin = Integer . MIN_VALUE ;
+        Current NodeLCD ;
+        current = first;
+        NodeLCD currentAux;
+        actualAux = first;
+        
+    }
 
-
-
-
-
-
-//------------------------Dividir la lista en dos a partir de un nodo específico. Se retorna una nueva lista partiendo del nodo específico.
         
         
         
+  public static void main(String[] args) {
+        List list4 = new  List ();
+        list4 . insert ( 10 );
+        list4 . insert ( 20 );
+        list4 . insert ( 30 );
+        list4 . showList ();
+        int indice=lista4.search(30);
+        if(indice<0){
+            System . out . println ( " the number is not in the list " );
+        }else{
+            System . out . println ( " the number is in position " + index + " of the list " );
+        }
         
+        
+    }       
 }
